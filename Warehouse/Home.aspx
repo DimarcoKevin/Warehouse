@@ -11,14 +11,15 @@
         <h1>Hello User!</h1>
         <h4>Please select a function in the list below</h4>
         <div>
-            <asp:LinkButton ID="Items" runat="server" PostBackUrl="~/Items.aspx">Items</asp:LinkButton> 
+            <asp:LinkButton ID="Items" runat="server" PostBackUrl="~/Items.aspx">Items</asp:LinkButton> <br />
+            <asp:LinkButton ID="CreateItem" runat="server" PostBackUrl="~/CreateItem.aspx">Create Item</asp:LinkButton> 
             <!-- 
                 DONE:
                 1) Display Items
 
 
                 ON-DECK:
-                1) Create new item
+                1) Create new item (design complete - needs logic)
                 2) Add back in login/signup page
                 3) validate user authentication as well as status - users.role
 

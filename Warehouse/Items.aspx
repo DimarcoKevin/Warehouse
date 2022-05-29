@@ -10,7 +10,7 @@
     
     
     <form id="form1" runat="server">
-        <asp:LinkButton ID="GoHomeLink" runat="server">Go Home</asp:LinkButton>
+        <asp:LinkButton ID="GoHomeLink" runat="server" PostBackUrl="~/Home.aspx">Go Home</asp:LinkButton>
 
         <div>
             <asp:Label ID="HeaderLabel" runat="server" Text="Search by Item"></asp:Label>

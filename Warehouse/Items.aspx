@@ -17,6 +17,7 @@
             <br />
             <asp:TextBox ID="SearchBox" runat="server"></asp:TextBox>
             <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" />
+            <asp:Button ID="ShowAllButton" runat="server" Text="Show All" OnClick="ShowAllButton_Click" />
         </div>
 
         <asp:GridView ID="GridViewItems" runat="server"></asp:GridView>

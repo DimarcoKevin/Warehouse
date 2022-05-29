@@ -8,7 +8,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <h1>Create new items</h1>
+        <asp:LinkButton ID="GoHomeLink" runat="server" PostBackUrl="~/Home.aspx">Go Home</asp:LinkButton>
+        <h1>Create new items!</h1>
+        
         <div>
             <asp:Label ID="ItemLabel" runat="server">Item</asp:Label>
             <asp:TextBox ID="ItemTextBox" runat="server"></asp:TextBox>

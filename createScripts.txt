@@ -5,3 +5,13 @@ CREATE TABLE [dbo].[users](
 	[email] [varchar](50) NULL
 ) ON [PRIMARY]
 GO
+
+CREATE TABLE [dbo].[items](
+	[barcode] [numeric](18, 0)  NOT NULL,
+	[name] [varchar](50) NOT NULL,
+	[color] [varchar](50) NOT NULL,
+	[description] [varchar](500) NOT NULL,
+	[max_per_pallet] [numeric](6,0) NOT NULL,
+	[price] [numeric](6,2) NOT NULL
+) ON [PRIMARY]
+GO

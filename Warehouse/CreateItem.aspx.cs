@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using Warehouse.Objects;
 
 namespace Warehouse {
     public partial class CreateItem : System.Web.UI.Page {
@@ -21,19 +17,22 @@ namespace Warehouse {
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e) {
+            Item item = new Item();
+
+       
             String name;
             String color;
             String desc;
             int max;
             float price;
 
-            name = ItemTextBox.Text;
-            color = ColorDD.Text;
-            desc = ItemTextBox.Text;
+            item.name = ItemTextBox.Text;
+            item.color = ColorDD.Text;
+            item.description = ItemTextBox.Text;
 
             try {
-                max = int.Parse(MaxTextBox.Text);
-                price = float.Parse(PriceTextBox.Text);
+                item.max_per_pallet = int.Parse(MaxTextBox.Text);
+                item.price = float.Parse(PriceTextBox.Text);
             } catch(FormatException ex) {
                 ErrorLabel.Text = ex.Message;
             }

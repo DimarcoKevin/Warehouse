@@ -13,6 +13,11 @@
                 Linkable pages:
                 1) Display Items
                 2) Create new item
+                
+                3) Create a pallet of items
+                4) Receive a pallet of itesm
+                5) ship a pallet of items
+
                 3) Display location grid
                 4) Create new location
                 5) Search for locations with 'XYZ' item

@@ -19,13 +19,14 @@ GO
 
 
 CREATE TABLE [dbo].[locations](
+	[row] [numeric](3,0) NOT NULL,
 	[x] [numeric](3,0) NOT NULL,
 	[y] [numeric](3,0) NOT NULL,
-	[z] [numeric](3,0) NOT NULL,
 	[occupied] [bit] NOT NULL default 0,
 	[pallet_id] [numeric](18,0) NULL,
 	[max_per_pallet] [numeric](6,0) NULL,
 	[qty] [numeric](6,0) NULL,
-	PRIMARY KEY(x, y, z)
+	PRIMARY KEY(row, x, y)
 )  
 GO
+

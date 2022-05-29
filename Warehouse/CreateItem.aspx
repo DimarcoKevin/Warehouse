@@ -32,7 +32,7 @@
             <asp:TextBox ID="PriceTextBox" runat="server" TextMode="Number"></asp:TextBox>
         </div>
         <div>
-            <asp:Button ID="SubmitButton" runat="server" Text="Submit"></asp:Button>
+            <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click"></asp:Button>
         </div>
     </form>
 </body>

@@ -31,9 +31,13 @@ namespace Warehouse {
             color = ColorDD.Text;
             desc = ItemTextBox.Text;
 
-
-            max =  int.Parse(MaxTextBox.Text);
-            price = float.Parse(PriceTextBox.Text); 
+            try {
+                max = int.Parse(MaxTextBox.Text);
+                price = float.Parse(PriceTextBox.Text);
+            } catch(FormatException ex) {
+                ErrorLabel.Text = ex.Message;
+            }
+            
 
             // validation
             // 1) all fields must be filled 

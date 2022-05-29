@@ -32,6 +32,9 @@
             <asp:TextBox ID="PriceTextBox" runat="server" TextMode="Number"></asp:TextBox>
         </div>
         <div>
+            <asp:Label ID="ErrorLabel" runat="server"></asp:Label>
+        </div>
+        <div>
             <asp:Button ID="SubmitButton" runat="server" Text="Submit" OnClick="SubmitButton_Click"></asp:Button>
         </div>
     </form>

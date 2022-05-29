@@ -1,3 +1,4 @@
+// roles = (user, admin, superuser)
 CREATE TABLE [dbo].[users](
 	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[username] [varchar](50) NOT NULL,
@@ -9,7 +10,6 @@ GO
 
 CREATE TABLE [dbo].[items](
 	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
-	[barcode] [numeric](18, 0)  NOT NULL,
 	[name] [varchar](50) NOT NULL,
 	[color] [varchar](50) NOT NULL,
 	[description] [varchar](500) NOT NULL,

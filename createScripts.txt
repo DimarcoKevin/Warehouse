@@ -16,3 +16,16 @@ CREATE TABLE [dbo].[items](
 	[price] [numeric](6,2) NOT NULL
 ) ON [PRIMARY]
 GO
+
+
+CREATE TABLE [dbo].[locations](
+	[x] [numeric](3,0) NOT NULL,
+	[y] [numeric](3,0) NOT NULL,
+	[z] [numeric](3,0) NOT NULL,
+	[occupied] [bit] NOT NULL default 0,
+	[pallet_id] [numeric](18,0) NULL,
+	[max_per_pallet] [numeric](6,0) NULL,
+	[qty] [numeric](6,0) NULL,
+	PRIMARY KEY(x, y, z)
+)  
+GO

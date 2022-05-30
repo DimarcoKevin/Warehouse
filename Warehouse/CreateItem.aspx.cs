@@ -7,16 +7,18 @@ namespace Warehouse {
     public partial class CreateItem : System.Web.UI.Page {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
         protected void Page_Load(object sender, EventArgs e) {
-            ColorDD.Items.Add("Red");
-            ColorDD.Items.Add("Blue");
-            ColorDD.Items.Add("Green");
-            ColorDD.Items.Add("Yellow");
-            ColorDD.Items.Add("Pink");
-            ColorDD.Items.Add("Purple");
-            ColorDD.Items.Add("Orange");
-            ColorDD.Items.Add("Brown");
-            ColorDD.Items.Add("Black");
-            ColorDD.Items.Add("White");
+            if (ColorDD.Items.Count == 0) {
+                ColorDD.Items.Add("Red");
+                ColorDD.Items.Add("Blue");
+                ColorDD.Items.Add("Green");
+                ColorDD.Items.Add("Yellow");
+                ColorDD.Items.Add("Pink");
+                ColorDD.Items.Add("Purple");
+                ColorDD.Items.Add("Orange");
+                ColorDD.Items.Add("Brown");
+                ColorDD.Items.Add("Black");
+                ColorDD.Items.Add("White");
+            }
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e) {

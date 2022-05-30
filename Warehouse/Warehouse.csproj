@@ -94,6 +94,7 @@
     <Compile Include="Items.aspx.designer.cs">
       <DependentUpon>Items.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Objects\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

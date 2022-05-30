@@ -43,9 +43,18 @@
                 
 
                 *** Hidden admin panel inside if-statement
-                <% String code = "Use these to write C# inside aspx";%> 
+              
                 
                 -->
+            <%
+                if (user != "" && user != null) {
+                    LogoutButton.Visible = true;
+                }
+            %>
+            <!-- Temporary BR to make gap until styling is added -->
+            <br />
+            <br />
+            <asp:LinkButton ID="LogoutButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Logout</asp:LinkButton> 
         </div>
     </form>
 </body>

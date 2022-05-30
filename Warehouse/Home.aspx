@@ -22,9 +22,7 @@
                 ON-DECK:
                 2) validate user authentication as well as status - users.role
                     - Current validates user and passes it back as a global var
-                    - Need to add admin/superuser functionality
-
-                Need to modify item table to include user_stamp/time_stamp
+                    - Need to add admin/superuser functionality         
 
                 Linkable pages:
                 3) Insert a pallet of items and place in location
@@ -42,9 +40,7 @@
                 Then have outbound deliveries for customers 
                 
 
-                *** Hidden admin panel inside if-statement
-              
-                
+                *** Hidden admin panel inside if-statement                       
                 -->
             <%
                 if (user != "" && user != null) {

@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CreateItem.aspx" />
+    <Content Include="CreatePallet.aspx" />
     <Content Include="Home.aspx" />
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
@@ -82,6 +83,13 @@
     </Compile>
     <Compile Include="CreateItem.aspx.designer.cs">
       <DependentUpon>CreateItem.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CreatePallet.aspx.cs">
+      <DependentUpon>CreatePallet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CreatePallet.aspx.designer.cs">
+      <DependentUpon>CreatePallet.aspx</DependentUpon>
     </Compile>
     <Compile Include="Home.aspx.cs">
       <DependentUpon>Home.aspx</DependentUpon>

@@ -13,7 +13,7 @@
 
         <div>
             <asp:Label ID="ItemLabel" runat="server">Item</asp:Label>
-            <asp:DropDownList ID="ItemDD" runat="server"></asp:DropDownList>
+            <asp:DropDownList ID="ItemDD" runat="server" OnSelectedIndexChanged="ItemDD_SelectedIndexChanged"></asp:DropDownList>
         </div>
         <div>
             <asp:Label ID="Color" runat="server">Color</asp:Label>

@@ -14,7 +14,9 @@ CREATE TABLE [dbo].[items](
 	[color] [varchar](50) NOT NULL,
 	[description] [varchar](500) NULL,
 	[max_per_pallet] [numeric](6,0) NOT NULL,
-	[price] [numeric](6,2) NOT NULL
+	[price] [numeric](6,2) NOT NULL,
+	[user_stamp][varchar](50) NULL,
+	[time_stamp][datetime] NULL
 ) ON [PRIMARY]
 GO
 

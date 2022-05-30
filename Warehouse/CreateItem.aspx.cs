@@ -2,11 +2,12 @@
 using System.Data;
 using System.Data.SqlClient;
 using Warehouse.Objects;
-using static System.Net.Mime.MediaTypeNames;
+using Warehouse.Variables;
 
 namespace Warehouse {
     public partial class CreateItem : System.Web.UI.Page {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
+        public string user = GlobalVariables.user;
         protected void Page_Load(object sender, EventArgs e) {
             if (ColorDD.Items.Count == 0) {
                 ColorDD.Items.Add("Red");
@@ -55,19 +56,24 @@ namespace Warehouse {
                 ErrorLabel.Text = "Error, that item name and color is already used.";
                 ErrorLabel.ForeColor = System.Drawing.Color.Red;
             } else {
-                SqlCommand cmd = new SqlCommand("INSERT INTO Items VALUES(@Name, @Color, @Description, @Max, @Price)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO Items (name, color, description, max_per_pallet, price, user_stamp, time_stamp)" +
+                    "VALUES(@Name, @Color, @Description, @Max, @Price, @UserStamp, @TimeStamp)", con);
 
                 cmd.Parameters.Add("@Name", SqlDbType.VarChar);
                 cmd.Parameters.Add("@Color", SqlDbType.VarChar);
                 cmd.Parameters.Add("@Description", SqlDbType.VarChar);
                 cmd.Parameters.Add("@Max", SqlDbType.Int);
                 cmd.Parameters.Add("@Price", SqlDbType.Float);
+                cmd.Parameters.Add("@UserStamp", SqlDbType.VarChar);
+                cmd.Parameters.Add("@TimeStamp", SqlDbType.DateTime);
 
                 cmd.Parameters["@Name"].Value = item.name;
                 cmd.Parameters["@Color"].Value = item.color;
                 cmd.Parameters["@Description"].Value = item.description;
                 cmd.Parameters["@Max"].Value = item.max_per_pallet;
                 cmd.Parameters["@Price"].Value = item.price;
+                cmd.Parameters["@UserStamp"].Value = user;
+                cmd.Parameters["@TimeStamp"].Value = DateTime.Now;
 
                 con.Open();
                 cmd.ExecuteNonQuery();
@@ -76,13 +82,6 @@ namespace Warehouse {
                 ErrorLabel.Text = "You have successfully added " + item.color + " " + item.name + "'s to the item list!";
                 ErrorLabel.ForeColor = System.Drawing.Color.Blue;
             }
-
-
-            // validation
-            // 1) all fields must be filled 
-            // 2) max and price must be correct type
-            
-
         }
     }
 }

@@ -25,21 +25,31 @@ public partial class CreatePallet : System.Web.UI.Page {
             ItemDD.DataBind();
             Page.Response.Write("<script>console.log('Load:');</script>");
             Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
-        }
 
-        protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
-            SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select distinct color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
+            SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
             DataTable dtColor = new DataTable();
 
             SqlAdapterColor.Fill(dtColor);
 
             ColorDD.DataSource = dtColor;
-            ColorDD.DataTextField = "name";
-            ColorDD.DataValueField = "name";
+            ColorDD.DataTextField = "color";
+            ColorDD.DataValueField = "color";
             ColorDD.DataBind();
+        }
 
-            Page.Response.Write("<script>console.log('ItemChanged:');</script>");
-            Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
+        protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
+            //SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select distinct color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
+            //DataTable dtColor = new DataTable();
+
+            //SqlAdapterColor.Fill(dtColor);
+
+            //ColorDD.DataSource = dtColor;
+            //ColorDD.DataTextField = "name";
+            //ColorDD.DataValueField = "name";
+            //ColorDD.DataBind();
+
+            //Page.Response.Write("<script>console.log('ItemChanged:');</script>");
+            //Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
 
 
         }

@@ -12,7 +12,7 @@ CREATE TABLE [dbo].[items](
 	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[name] [varchar](50) NOT NULL,
 	[color] [varchar](50) NOT NULL,
-	[description] [varchar](500) NOT NULL,
+	[description] [varchar](500) NULL,
 	[max_per_pallet] [numeric](6,0) NOT NULL,
 	[price] [numeric](6,2) NOT NULL
 ) ON [PRIMARY]

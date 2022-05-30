@@ -15,14 +15,16 @@ namespace Warehouse {
 
             SqlAdapter.Fill(dt);
 
-            if (dt.Rows.Count > 0) {
-                login_message.Text = "You have successfully logged in! Welcome " + username.Text + "!";
-            } else {
+            if (dt.Rows.Count == 0) {
                 login_message.Text = "Error, cannot sign you in...";
+                username.Text = "";
+                password.Text = "";
+                return;
             }
 
-            username.Text = "";
-            password.Text = "";
+            Response.Redirect("Home.aspx");
+
+            
         }
     }
 }

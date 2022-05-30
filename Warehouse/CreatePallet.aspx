@@ -10,9 +10,16 @@
     <form id="form1" runat="server">
         <asp:LinkButton ID="GoHomeLink" runat="server" PostBackUrl="~/Home.aspx">Go Home</asp:LinkButton>
         <h1>Create new pallets!</h1>
-        <div>
 
+        <div>
+            <asp:Label ID="ItemLabel" runat="server">Item</asp:Label>
+            <asp:DropDownList ID="ItemDD" runat="server"></asp:DropDownList>
         </div>
+        <div>
+            <asp:Label ID="Color" runat="server">Color</asp:Label>
+            <asp:DropDownList ID="ColorDD" runat="server"></asp:DropDownList>
+        </div>
+
     </form>
 </body>
 </html>

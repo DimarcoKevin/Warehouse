@@ -24,15 +24,19 @@
                 2) validate user authentication as well as status - users.role
 
                 Linkable pages:
-                3) Create a pallet of items
-                4) Receive a pallet of itesm
-                5) ship a pallet of items
+                3) Insert a pallet of items and place in location
+                4) Receive a pallet of items (Inbound) (Tied with ^)
+                5) Create an order (Picking warehouse items)
+                6) Packing order (Closing up pallet) (Might only be needed if I decide to add delivery doors/trucks)
+                7) ship an order of items (Outbound)
 
-                3) Display location grid
-                4) Create new location
-                5) Search for locations with 'XYZ' item
-                6) Display item and stock in '123' location
+                8) Search for locations with 'XYZ' item 
+                9) Display item and stock in '123' location
 
+
+                You can decide to do full inbound deliveries with full pallets of items
+                and then do full pick pick orders for customers
+                Then have outbound deliveries for customers 
                 
 
                 *** Hidden admin panel inside if-statement

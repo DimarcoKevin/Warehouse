@@ -25,11 +25,11 @@
         </div>
         <div>
             <asp:Label ID="MaxLabel" runat="server">Max per pallet</asp:Label>
-            <asp:TextBox ID="MaxTextBox" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="MaxTextBox" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="PriceLabel" runat="server">Price ($)</asp:Label>
-            <asp:TextBox ID="PriceTextBox" runat="server" TextMode="Number"></asp:TextBox>
+            <asp:TextBox ID="PriceTextBox" runat="server"></asp:TextBox>
         </div>
         <div>
             <asp:Label ID="ErrorLabel" runat="server"></asp:Label>

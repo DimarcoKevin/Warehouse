@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.SqlClient;
 using Warehouse.Objects;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace Warehouse {
     public partial class CreateItem : System.Web.UI.Page {
@@ -25,6 +26,14 @@ namespace Warehouse {
 
             Item item = new Item();
 
+            // validation for item name
+            if (ItemTextBox.Text == "" || ItemTextBox.Text == null) {
+                ErrorLabel.Text = "Item name cannot be empty";
+                ErrorLabel.ForeColor = System.Drawing.Color.Red;
+                return;
+            }
+
+            // validation for other fields
             try {
                 item.name = ItemTextBox.Text;
                 item.color = ColorDD.Text;

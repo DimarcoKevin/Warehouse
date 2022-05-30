@@ -16,12 +16,12 @@
             <!-- 
                 DONE:
                 1) Display Items
+                2) Create new Item
 
 
                 ON-DECK:
-                1) Create new item (design complete - needs logic)
-                2) Add back in login/signup page
-                3) validate user authentication as well as status - users.role
+                1) Add back in login/signup page
+                2) validate user authentication as well as status - users.role
 
                 Linkable pages:
                 3) Create a pallet of items

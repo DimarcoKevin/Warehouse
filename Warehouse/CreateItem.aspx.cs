@@ -22,15 +22,16 @@ namespace Warehouse {
         protected void SubmitButton_Click(object sender, EventArgs e) {
 
             Item item = new Item();
-            item.name = ItemTextBox.Text;
-            item.color = ColorDD.Text;
-            item.description = DescTextBox.Text;
 
             try {
+                item.name = ItemTextBox.Text;
+                item.color = ColorDD.Text;
+                item.description = DescTextBox.Text;
                 item.max_per_pallet = int.Parse(MaxTextBox.Text);
                 item.price = float.Parse(PriceTextBox.Text);
             } catch(FormatException ex) {
                 ErrorLabel.Text = ex.Message;
+                ErrorLabel.ForeColor = System.Drawing.Color.Red;
                 return;
             }
 
@@ -41,8 +42,8 @@ namespace Warehouse {
             SqlAdapter.Fill(dt);
             if (dt.Rows.Count > 0) {
                 ErrorLabel.Text = "Error, that item name and color is already used.";
+                ErrorLabel.ForeColor = System.Drawing.Color.Red;
             } else {
-
                 SqlCommand cmd = new SqlCommand("INSERT INTO Items VALUES(@Name, @Color, @Description, @Max, @Price)", con);
 
                 cmd.Parameters.Add("@Name", SqlDbType.VarChar);
@@ -58,19 +59,18 @@ namespace Warehouse {
                 cmd.Parameters["@Price"].Value = item.price;
 
                 con.Open();
-
-                int RowsAffected = cmd.ExecuteNonQuery();
-
+                cmd.ExecuteNonQuery();
                 con.Close();
 
                 ErrorLabel.Text = "You have successfully added " + item.color + " " + item.name + "'s to the item list!";
+                ErrorLabel.ForeColor = System.Drawing.Color.Blue;
             }
 
 
             // validation
             // 1) all fields must be filled 
             // 2) max and price must be correct type
-            // 3) cannot exist with same name/color (Those are sort of primary keys here)
+            
 
         }
     }

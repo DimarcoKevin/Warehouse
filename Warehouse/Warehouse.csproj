@@ -72,6 +72,7 @@
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Signup.aspx" />
+    <Content Include="Styling\Login.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -123,9 +124,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Styling\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

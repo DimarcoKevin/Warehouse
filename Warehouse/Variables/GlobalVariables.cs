@@ -20,6 +20,9 @@ namespace Warehouse.Variables {
 
 
 
-        public static String user { get; set; }
+        public static string user { get; set; }
+
+        public static string role { get; set; }
+
     }
 }

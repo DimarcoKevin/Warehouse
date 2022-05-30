@@ -13,6 +13,7 @@
         <div>
             <asp:LinkButton ID="Items" runat="server" PostBackUrl="~/Items.aspx">Items</asp:LinkButton> <br />
             <asp:LinkButton ID="CreateItem" runat="server" PostBackUrl="~/CreateItem.aspx">Create Item</asp:LinkButton> 
+            <asp:LinkButton ID="CreatePallet" runat="server" PostBackUrl="~/CreatePallet.aspx">Create Pallet</asp:LinkButton> 
             <!-- 
                 DONE:
                 1) Display Items
@@ -42,6 +43,8 @@
 
                 *** Hidden admin panel inside if-statement                       
                 -->
+
+
             <%
                 if (user != "" && user != null) {
                     LogoutButton.Visible = true;

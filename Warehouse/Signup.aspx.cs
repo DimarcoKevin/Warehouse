@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Warehouse.Variables;
 
 namespace Warehouse {
     public partial class Signup : System.Web.UI.Page {
@@ -37,7 +38,8 @@ namespace Warehouse {
                 cmd.ExecuteNonQuery();
                 con.Close();
 
-                signup_message.Text = "You have successfully signed up! Welcome " + username.Text + "!";
+                GlobalVariables.user = username.Text;
+                Response.Redirect("Home.aspx");
             }
         }
     }

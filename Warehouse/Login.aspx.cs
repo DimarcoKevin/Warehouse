@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using Warehouse.Variables;
 
 namespace Warehouse {
     public partial class Login : System.Web.UI.Page {
@@ -22,9 +23,9 @@ namespace Warehouse {
                 return;
             }
 
+            GlobalVariables.user = username.Text;
             Response.Redirect("Home.aspx");
-
-            
+      
         }
     }
 }

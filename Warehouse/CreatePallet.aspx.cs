@@ -14,27 +14,34 @@ public partial class CreatePallet : System.Web.UI.Page {
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
 
         protected void Page_Load(object sender, EventArgs e) {
-            SqlDataAdapter SqlAdapterItem = new SqlDataAdapter("select distinct name from dbo.items", con);
+
+            SqlDataAdapter SqlAdapter = new SqlDataAdapter("select name, color from dbo.items", con);
             DataTable dtItem = new DataTable();
 
-            SqlAdapterItem.Fill(dtItem);
+            SqlAdapter.Fill(dtItem);
+
+            DataRow[] rows = dtItem.Select("Unique name");
 
             ItemDD.DataSource = dtItem;
             ItemDD.DataTextField = "name";
             ItemDD.DataValueField = "name";
             ItemDD.DataBind();
+
+
+
+         
             Page.Response.Write("<script>console.log('Load:');</script>");
             Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
 
-            SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
-            DataTable dtColor = new DataTable();
+            //SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
+            //DataTable dtColor = new DataTable();
 
-            SqlAdapterColor.Fill(dtColor);
+            //SqlAdapterColor.Fill(dtColor);
 
-            ColorDD.DataSource = dtColor;
-            ColorDD.DataTextField = "color";
-            ColorDD.DataValueField = "color";
-            ColorDD.DataBind();
+            //ColorDD.DataSource = dtColor;
+            //ColorDD.DataTextField = "color";
+            //ColorDD.DataValueField = "color";
+            //ColorDD.DataBind();
         }
 
         protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
@@ -48,7 +55,7 @@ public partial class CreatePallet : System.Web.UI.Page {
             //ColorDD.DataValueField = "name";
             //ColorDD.DataBind();
 
-            //Page.Response.Write("<script>console.log('ItemChanged:');</script>");
+            Page.Response.Write("<script>console.log('ItemChanged:');</script>");
             //Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
 
 

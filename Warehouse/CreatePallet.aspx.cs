@@ -15,50 +15,49 @@ public partial class CreatePallet : System.Web.UI.Page {
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            SqlDataAdapter SqlAdapter = new SqlDataAdapter("select name, color from dbo.items", con);
+            SqlDataAdapter SqlAdapterItem = new SqlDataAdapter("select distinct name from dbo.items", con);
             DataTable dtItem = new DataTable();
 
-            SqlAdapter.Fill(dtItem);
-
-            DataRow[] rows = dtItem.Select("Unique name");
+            SqlAdapterItem.Fill(dtItem);
 
             ItemDD.DataSource = dtItem;
             ItemDD.DataTextField = "name";
             ItemDD.DataValueField = "name";
             ItemDD.DataBind();
 
+            fillColors();
 
-
-         
             Page.Response.Write("<script>console.log('Load:');</script>");
             Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
 
-            //SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
-            //DataTable dtColor = new DataTable();
+        }
 
-            //SqlAdapterColor.Fill(dtColor);
-
-            //ColorDD.DataSource = dtColor;
-            //ColorDD.DataTextField = "color";
-            //ColorDD.DataValueField = "color";
-            //ColorDD.DataBind();
+        // this shit still doesnt work
+        // everything else does though
+        protected void ItemDD_TextChanged(object sender, EventArgs e) {
+            fillColors();
+            Page.Response.Write("<script>console.log('ItemChanged:');</script>");
         }
 
         protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
-            //SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select distinct color from dbo.items where name = '" + ItemDD.SelectedValue + "'", con);
-            //DataTable dtColor = new DataTable();
-
-            //SqlAdapterColor.Fill(dtColor);
-
-            //ColorDD.DataSource = dtColor;
-            //ColorDD.DataTextField = "name";
-            //ColorDD.DataValueField = "name";
-            //ColorDD.DataBind();
-
-            Page.Response.Write("<script>console.log('ItemChanged:');</script>");
-            //Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
-
-
+            
         }
+
+        protected void fillColors() {
+            SqlDataAdapter SqlAdapterColor = new SqlDataAdapter("select name, color from dbo.items", con);
+            DataTable dtColor = new DataTable();
+            SqlAdapterColor.Fill(dtColor);
+
+            ColorDD.Items.Clear();
+
+            DataRow[] rows = dtColor.Select("name = '" + ItemDD.SelectedValue + "'");
+
+            foreach (DataRow row in rows) {
+                var color = row["color"].ToString();
+                ColorDD.Items.Add(color);
+            }
+        }
+
+        
     }
 }

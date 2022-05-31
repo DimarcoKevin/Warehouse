@@ -15,16 +15,7 @@ public partial class CreatePallet : System.Web.UI.Page {
 
         protected void Page_Load(object sender, EventArgs e) {
 
-            SqlDataAdapter SqlAdapterItem = new SqlDataAdapter("select distinct name from dbo.items", con);
-            DataTable dtItem = new DataTable();
-
-            SqlAdapterItem.Fill(dtItem);
-
-            ItemDD.DataSource = dtItem;
-            ItemDD.DataTextField = "name";
-            ItemDD.DataValueField = "name";
-            ItemDD.DataBind();
-
+            fillItems();
             fillColors();
 
             Page.Response.Write("<script>console.log('Load:');</script>");
@@ -36,11 +27,24 @@ public partial class CreatePallet : System.Web.UI.Page {
         // everything else does though
         protected void ItemDD_TextChanged(object sender, EventArgs e) {
             fillColors();
+
             Page.Response.Write("<script>console.log('ItemChanged:');</script>");
         }
 
         protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
             
+        }
+
+        protected void fillItems() {
+            SqlDataAdapter SqlAdapterItem = new SqlDataAdapter("select distinct name from dbo.items", con);
+            DataTable dtItem = new DataTable();
+
+            SqlAdapterItem.Fill(dtItem);
+
+            ItemDD.DataSource = dtItem;
+            ItemDD.DataTextField = "name";
+            ItemDD.DataValueField = "name";
+            ItemDD.DataBind();
         }
 
         protected void fillColors() {

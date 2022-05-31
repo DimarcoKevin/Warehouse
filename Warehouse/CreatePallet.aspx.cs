@@ -23,18 +23,6 @@ public partial class CreatePallet : System.Web.UI.Page {
 
         }
 
-        // this shit still doesnt work
-        // everything else does though
-        protected void ItemDD_TextChanged(object sender, EventArgs e) {
-            fillColors();
-
-            Page.Response.Write("<script>console.log('ItemChanged:');</script>");
-        }
-
-        protected void ItemDD_SelectedIndexChanged(object sender, EventArgs e) {
-            
-        }
-
         protected void fillItems() {
             SqlDataAdapter SqlAdapterItem = new SqlDataAdapter("select distinct name from dbo.items", con);
             DataTable dtItem = new DataTable();

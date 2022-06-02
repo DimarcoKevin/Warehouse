@@ -11,6 +11,7 @@ using Warehouse.Variables;
 namespace Warehouse {
     public partial class Home : System.Web.UI.Page {
         public string user = GlobalVariables.user;
+        public string role;
 
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
 
@@ -25,7 +26,7 @@ namespace Warehouse {
             Object data = dt.Rows[0][0];
 
             GlobalVariables.role = data.ToString();
-
+            role = GlobalVariables.role;
         }
     }
 }

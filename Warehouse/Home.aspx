@@ -47,6 +47,9 @@
 
 
             <%
+                if (role == "admin") {
+                    AdminButton.Visible = true;
+                }
                 if (user != "" && user != null) {
                     LogoutButton.Visible = true;
                 }
@@ -54,7 +57,7 @@
             <!-- Temporary BR to make gap until styling is added -->
             <br />
             <br />
-            <asp:LinkButton ID="AdminButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Logout</asp:LinkButton> 
+            <asp:LinkButton ID="AdminButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Admin</asp:LinkButton> 
             <asp:LinkButton ID="LogoutButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Logout</asp:LinkButton> 
         </div>
     </form>

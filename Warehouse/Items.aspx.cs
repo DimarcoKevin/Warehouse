@@ -31,6 +31,8 @@ namespace Warehouse {
             DataTable dt = new DataTable();
 
             SqlAdapter.Fill(dt);
+            dt.Columns.Add("Modify");
+            dt.Columns.Add("Delete");
 
             GridViewItems.DataSource = dt;
             GridViewItems.DataBind();

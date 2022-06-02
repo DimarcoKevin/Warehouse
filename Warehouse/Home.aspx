@@ -52,6 +52,7 @@
             <!-- Temporary BR to make gap until styling is added -->
             <br />
             <br />
+            <asp:LinkButton ID="AdminButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Logout</asp:LinkButton> 
             <asp:LinkButton ID="LogoutButton" runat="server" PostBackUrl="~/Login.aspx" Visible="false">Logout</asp:LinkButton> 
         </div>
     </form>

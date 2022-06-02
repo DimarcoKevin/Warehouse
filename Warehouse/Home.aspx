@@ -39,6 +39,8 @@
                 and then do full pick pick orders for customers
                 Then have outbound deliveries for customers 
                 
+                *** USE THIS FOR COMMENTS ***
+                System.Diagnostics.Debug.WriteLine(GlobalVariables.user);
 
                 *** Hidden admin panel inside if-statement                       
                 -->

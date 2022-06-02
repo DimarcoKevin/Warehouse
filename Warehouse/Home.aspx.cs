@@ -24,7 +24,7 @@ namespace Warehouse {
 
             Object data = dt.Rows[0][0];
 
-            GlobalVariables.user = data.ToString();
+            GlobalVariables.role = data.ToString();
 
         }
     }

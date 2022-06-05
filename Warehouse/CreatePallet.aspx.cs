@@ -54,6 +54,10 @@ public partial class CreatePallet : System.Web.UI.Page {
             //    var color = row["color"].ToString();
             //    ColorDD.Items.Add(color);
             //}
-        }      
+        }
+
+        protected void SubmitButton_Click(object sender, EventArgs e) {
+
+        }
     }
 }

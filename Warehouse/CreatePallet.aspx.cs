@@ -19,8 +19,6 @@ public partial class CreatePallet : System.Web.UI.Page {
             fillItems();
             fillColors();
 
-            //Page.Response.Write("<script>console.log('Load:');</script>");
-            //Page.Response.Write("<script>console.log('" + ItemDD.SelectedValue + "');</script>");
 
         }
 
@@ -46,17 +44,13 @@ public partial class CreatePallet : System.Web.UI.Page {
             ColorDD.DataTextField = "color";
             ColorDD.DataValueField = "color";
             ColorDD.DataBind();
-
-
-            //DataRow[] rows = dtColor.Select("name = '" + ItemDD.SelectedValue + "'");
-
-            //foreach (DataRow row in rows) {
-            //    var color = row["color"].ToString();
-            //    ColorDD.Items.Add(color);
-            //}
         }
 
         protected void SubmitButton_Click(object sender, EventArgs e) {
+            String item = ItemDD.SelectedValue;
+            String color = ColorDD.SelectedValue;
+
+
 
         }
     }

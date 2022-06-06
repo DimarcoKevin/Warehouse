@@ -86,21 +86,13 @@ public partial class CreatePallet : System.Web.UI.Page {
                     "VALUES(@ItemId, @ItemName, @ItemColor, @Max, @Quantity, @UserStamp, @TimeStamp)", con);
 
             // instantiating and setting variables for new pallet
-            cmd.Parameters.Add("@ItemId", SqlDbType.Int);
-            cmd.Parameters.Add("@ItemName", SqlDbType.VarChar);
-            cmd.Parameters.Add("@ItemColor", SqlDbType.VarChar);
-            cmd.Parameters.Add("@Max", SqlDbType.Int);
-            cmd.Parameters.Add("@Quantity", SqlDbType.Int);
-            cmd.Parameters.Add("@UserStamp", SqlDbType.VarChar);
-            cmd.Parameters.Add("@TimeStamp", SqlDbType.DateTime);
-
-            cmd.Parameters["@ItemId"].Value = item_id;
-            cmd.Parameters["@ItemName"].Value = item;
-            cmd.Parameters["@ItemColor"].Value = color;
-            cmd.Parameters["@Max"].Value = 1; // TODO temporary values
-            cmd.Parameters["@Quantity"].Value = 1; // TODO temporary values
-            cmd.Parameters["@UserStamp"].Value = GlobalVariables.user;
-            cmd.Parameters["@TimeStamp"].Value = DateTime.Now;
+            cmd.Parameters.AddWithValue("@ItemId", item_id);
+            cmd.Parameters.AddWithValue("@ItemName", item);
+            cmd.Parameters.AddWithValue("@ItemColor", color);
+            cmd.Parameters.AddWithValue("@Max", 1); // TODO replace with real value
+            cmd.Parameters.AddWithValue("@Quantity", 1); // TODO replace with real value
+            cmd.Parameters.AddWithValue("@UserStamp", GlobalVariables.user);
+            cmd.Parameters.AddWithValue("@TimeStamp", DateTime.Now);
 
             // opening connection calls
             con.Open();

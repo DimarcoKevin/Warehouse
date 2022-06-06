@@ -19,16 +19,17 @@
                 1) Display Items
                 2) Create new Item
                 3) Add back in login/signup page
+                4) Create Pallets page
+                5) Linking create Pallets to Locations
 
                 ON-DECK:
                 2) validate user authentication as well as status - users.role
                     - Need to add admin/superuser functionality         
 
                 Linkable pages:
-                3) Insert a pallet of items and place in location (issues within this)
-                4) Receive a pallet of items (Inbound) (Tied with ^)
-                5) Create an order (Picking warehouse items)
-                6) Packing order (Closing up pallet) (Might only be needed if I decide to add delivery doors/trucks)
+                4) Receive a pallet of items (Inbound) (might not be needed)
+                5) Create an order (Picking warehouse items) (could have role='customer' and have users place order)
+                6) Have a fake payment processor for customer view to make sale
                 7) ship an order of items (Outbound)
 
                 8) Search for locations with 'XYZ' item 
@@ -40,11 +41,8 @@
                 Then have outbound deliveries for customers 
                 
                 *** USE THIS FOR COMMENTS ***
-                System.Diagnostics.Debug.WriteLine(GlobalVariables.user);
-
-                *** Hidden admin panel inside if-statement                       
+                System.Diagnostics.Debug.WriteLine(GlobalVariables.user);                 
                 -->
-
 
             <%
                 if (role == "admin") {

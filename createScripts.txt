@@ -1,4 +1,4 @@
-// roles = (user, admin, superuser)
+-- roles = (user, admin, superuser)
 CREATE TABLE [dbo].[users](
 	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[username] [varchar](50) NOT NULL,
@@ -11,7 +11,7 @@ CREATE TABLE [dbo].[users](
 GO
 
 
-// ITEMS
+-- ITEMS
 CREATE TABLE [dbo].[items](
 	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
 	[name] [varchar](50) NOT NULL,
@@ -25,7 +25,28 @@ CREATE TABLE [dbo].[items](
  ([id] ASC) ON [PRIMARY]
  )
 
-// LOCATIONS
+ -- PALLETS
+CREATE TABLE [dbo].[pallets](
+	[id] [numeric](18, 0) IDENTITY(1,1) NOT NULL,
+	[item_id] [numeric](18, 0) NOT NULL,
+	[item_name] [varchar](50) NOT NULL,
+	[item_color] [varchar](50) NOT NULL,
+	[max_per_pallet] [numeric](6, 0) NOT NULL,
+	[qty] [numeric](6, 0) NOT NULL,
+	[user_stamp] [varchar](50) NULL,
+	[time_stamp] [datetime] NULL,
+ CONSTRAINT [PK_pallets] PRIMARY KEY CLUSTERED 
+([id] ASC)
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[pallets]  WITH CHECK ADD  CONSTRAINT [FK_pallets_items] FOREIGN KEY([item_id])
+REFERENCES [dbo].[items] ([id])
+GO
+ALTER TABLE [dbo].[pallets] CHECK CONSTRAINT [FK_pallets_items]
+GO
+
+-- LOCATIONS
 CREATE TABLE [dbo].[locations](
 	[row] [numeric](3, 0) NOT NULL,
 	[x] [numeric](3, 0) NOT NULL,
@@ -45,26 +66,3 @@ REFERENCES [dbo].[pallets] ([id])
 GO
 ALTER TABLE [dbo].[locations] CHECK CONSTRAINT [FK_locations_pallets]
 GO
-
-// PALLETS
-CREATE TABLE [dbo].[pallets](
-	[id] [numeric](18, 0) NOT NULL,
-	[item_id] [numeric](18, 0) NOT NULL,
-	[item_name] [varchar](50) NOT NULL,
-	[item_color] [varchar](50) NOT NULL,
-	[max_per_pallet] [numeric](6, 0) NOT NULL,
-	[qty] [numeric](6, 0) NOT NULL,
-	[user_stamp] [varchar](50) NULL,
-	[time_stamp] [datetime] NULL,
- CONSTRAINT [PK_pallets] PRIMARY KEY CLUSTERED 
-([id] ASC)
-) ON [PRIMARY]
-G
-
-ALTER TABLE [dbo].[pallets]  WITH CHECK ADD  CONSTRAINT [FK_pallets_items] FOREIGN KEY([item_id])
-REFERENCES [dbo].[items] ([id])
-GO
-ALTER TABLE [dbo].[pallets] CHECK CONSTRAINT [FK_pallets_items]
-GO
-
-

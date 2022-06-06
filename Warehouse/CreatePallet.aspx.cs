@@ -20,7 +20,6 @@ public partial class CreatePallet : System.Web.UI.Page {
             fillItems();
             fillColors();
 
-
         }
 
         protected void fillItems() {
@@ -90,8 +89,8 @@ public partial class CreatePallet : System.Web.UI.Page {
             cmd.ExecuteNonQuery();
             con.Close();
 
-            //ErrorLabel.Text = "You have successfully added " + item.color + " " + item.name + "'s to the item list!";
-            //ErrorLabel.ForeColor = System.Drawing.Color.Blue;
+            ErrorLabel.Text = "You have successfully created a pallet of " + color + " " + item + "'s";
+            ErrorLabel.ForeColor = System.Drawing.Color.Blue;
         }
     }
 }

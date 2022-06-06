@@ -58,9 +58,11 @@ public partial class CreatePallet : System.Web.UI.Page {
 
             SqlAdapterResults.Fill(dtResults);
 
-            // TODO later
+            // TODO later (temporary fix to warn user of non-existant item/color pair)
             // case when item/color combo doesnt exist yet
             if (dtResults.Rows.Count == 0) {
+                ErrorLabel.Text = item + "  does not exist in " + color;
+                ErrorLabel.ForeColor = System.Drawing.Color.Red;
                 return;
             }
             // unholy parsing...

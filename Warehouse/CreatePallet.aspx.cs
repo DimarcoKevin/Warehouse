@@ -125,8 +125,8 @@ public partial class CreatePallet : System.Web.UI.Page {
             // closing connection calls
             con.Close();
 
-            ErrorLabel.Text = "You have successfully created a pallet of " + color + " " + item + "'s";
-            ErrorLabel.Text += Environment.NewLine + "This pallet has been place in Row:" + row + " X:" + x + " Y:" + y;
+            ErrorLabel.Text = "You have successfully created a pallet of " + color + " " + item + "'s" + "<br />";
+            ErrorLabel.Text += "This pallet has been place in Row:" + row + " X:" + x + " Y:" + y;
             ErrorLabel.ForeColor = System.Drawing.Color.Blue;
         }
     }

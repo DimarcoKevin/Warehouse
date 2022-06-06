@@ -102,20 +102,31 @@ public partial class CreatePallet : System.Web.UI.Page {
             cmd.Parameters["@UserStamp"].Value = GlobalVariables.user;
             cmd.Parameters["@TimeStamp"].Value = DateTime.Now;
 
-            // starting connection calls
+            // opening connection calls
             con.Open();
 
-            // creating new pallet and getting new pallet_id
-            pallet_id = cmd.ExecuteNonQuery();
+            // creating new pallet
+            cmd.ExecuteNonQuery();
 
+            // gets id of last inserted row
+            SqlDataAdapter SqlAdapterScope = new SqlDataAdapter("select top 1 id from Pallets order by id desc", con);
+            DataTable dtScope = new DataTable();
+            SqlAdapterScope.Fill(dtScope);
 
-            SqlCommand cmdUpdate = new SqlCommand("UPDATE Locations set occupied = 1 and pallet_id = " + pallet_id + " " +
+            // getting pallet_id from global scope identity
+            pallet_id = int.Parse(dtScope.Rows[0]["id"].ToString());
+
+            // updating free location with newly made pallet
+            SqlCommand cmdUpdate = new SqlCommand("UPDATE Locations set occupied = 1, pallet_id = " + pallet_id + " " +
                 "where row = " + row + " and x = " + x + " and y = " + y, con);
 
             cmdUpdate.ExecuteNonQuery();
+
+            // closing connection calls
             con.Close();
 
             ErrorLabel.Text = "You have successfully created a pallet of " + color + " " + item + "'s";
+            ErrorLabel.Text += Environment.NewLine + "This pallet has been place in Row:" + row + " X:" + x + " Y:" + y;
             ErrorLabel.ForeColor = System.Drawing.Color.Blue;
         }
     }

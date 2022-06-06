@@ -50,13 +50,25 @@ public partial class CreatePallet : System.Web.UI.Page {
         protected void SubmitButton_Click(object sender, EventArgs e) {
             String item = ItemDD.Text;
             String color = ColorDD.Text;
-            String output;
             int item_id;
+            int pallet_id;
+            int row, x, y;
 
+            // item results
             SqlDataAdapter SqlAdapterResults = new SqlDataAdapter("select id from dbo.items where name = '" + item + "' and color = '" + color + "'", con);
             DataTable dtResults = new DataTable();
-
             SqlAdapterResults.Fill(dtResults);
+
+            // grabbed available location 
+            SqlDataAdapter SqlAdapterLocation = new SqlDataAdapter("select top 1 row, x, y from locations where occupied = 0", con);
+            DataTable dtLocation = new DataTable();
+            SqlAdapterLocation.Fill(dtLocation);
+
+            // unholy location parsing
+            row = int.Parse(dtLocation.Rows[0]["row"].ToString());
+            x = int.Parse(dtLocation.Rows[0]["x"].ToString());
+            y = int.Parse(dtLocation.Rows[0]["y"].ToString());
+
 
             // TODO later (temporary fix to warn user of non-existant item/color pair)
             // case when item/color combo doesnt exist yet
@@ -65,6 +77,7 @@ public partial class CreatePallet : System.Web.UI.Page {
                 ErrorLabel.ForeColor = System.Drawing.Color.Red;
                 return;
             }
+
             // unholy parsing...
             item_id = int.Parse(dtResults.Rows[0]["id"].ToString());
 
@@ -72,6 +85,7 @@ public partial class CreatePallet : System.Web.UI.Page {
             SqlCommand cmd = new SqlCommand("INSERT INTO Pallets (item_id, item_name, item_color, max_per_pallet, qty, user_stamp, time_stamp)" +
                     "VALUES(@ItemId, @ItemName, @ItemColor, @Max, @Quantity, @UserStamp, @TimeStamp)", con);
 
+            // instantiating and setting variables for new pallet
             cmd.Parameters.Add("@ItemId", SqlDbType.Int);
             cmd.Parameters.Add("@ItemName", SqlDbType.VarChar);
             cmd.Parameters.Add("@ItemColor", SqlDbType.VarChar);
@@ -83,13 +97,22 @@ public partial class CreatePallet : System.Web.UI.Page {
             cmd.Parameters["@ItemId"].Value = item_id;
             cmd.Parameters["@ItemName"].Value = item;
             cmd.Parameters["@ItemColor"].Value = color;
-            cmd.Parameters["@Max"].Value = 1;
-            cmd.Parameters["@Quantity"].Value = 1;
+            cmd.Parameters["@Max"].Value = 1; // TODO temporary values
+            cmd.Parameters["@Quantity"].Value = 1; // TODO temporary values
             cmd.Parameters["@UserStamp"].Value = GlobalVariables.user;
             cmd.Parameters["@TimeStamp"].Value = DateTime.Now;
 
+            // starting connection calls
             con.Open();
-            cmd.ExecuteNonQuery();
+
+            // creating new pallet and getting new pallet_id
+            pallet_id = cmd.ExecuteNonQuery();
+
+
+            SqlCommand cmdUpdate = new SqlCommand("UPDATE Locations set occupied = 1 and pallet_id = " + pallet_id + " " +
+                "where row = " + row + " and x = " + x + " and y = " + y, con);
+
+            cmdUpdate.ExecuteNonQuery();
             con.Close();
 
             ErrorLabel.Text = "You have successfully created a pallet of " + color + " " + item + "'s";

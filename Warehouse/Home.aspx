@@ -22,6 +22,7 @@
                 3) Add back in login/signup page
                 4) Create Pallets page
                 5) Linking create Pallets to Locations
+                6) Search for locations with 'XYZ' item 
 
                 ON-DECK:
                 2) validate user authentication as well as status - users.role
@@ -33,7 +34,7 @@
                 6) Have a fake payment processor for customer view to make sale
                 7) ship an order of items (Outbound)
 
-                8) Search for locations with 'XYZ' item 
+                
                 9) Display item and stock in '123' location
 
 

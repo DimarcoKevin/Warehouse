@@ -13,7 +13,8 @@
         <div>
             <asp:LinkButton ID="Items" runat="server" PostBackUrl="~/Items.aspx">Items</asp:LinkButton> <br />
             <asp:LinkButton ID="CreateItem" runat="server" PostBackUrl="~/CreateItem.aspx">Create Item</asp:LinkButton> <br />
-            <asp:LinkButton ID="CreatePallet" runat="server" PostBackUrl="~/CreatePallet.aspx">Create Pallet</asp:LinkButton> 
+            <asp:LinkButton ID="CreatePallet" runat="server" PostBackUrl="~/CreatePallet.aspx">Create Pallet</asp:LinkButton> <br />
+            <asp:LinkButton ID="SearchByItem" runat="server" PostBackUrl="~/SearchByItem.aspx">Search By Item</asp:LinkButton> 
             <!-- 
                 DONE:
                 1) Display Items

@@ -73,6 +73,7 @@
     <Content Include="Home.aspx" />
     <Content Include="Items.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="SearchByItem.aspx" />
     <Content Include="Signup.aspx" />
     <Content Include="Styling\Login.css" />
     <Content Include="Web.config" />
@@ -122,6 +123,13 @@
     </Compile>
     <Compile Include="Objects\Item.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SearchByItem.aspx.cs">
+      <DependentUpon>SearchByItem.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SearchByItem.aspx.designer.cs">
+      <DependentUpon>SearchByItem.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Signup.aspx.cs">
       <DependentUpon>Signup.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

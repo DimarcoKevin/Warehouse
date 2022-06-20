@@ -18,14 +18,20 @@ namespace Warehouse {
         protected void SearchButton_Click(object sender, EventArgs e) {
 
             // grabbing the location values for all pallets in existence 
-            String select = "select loc.row, loc.x, loc.y, loc.pallet_id, pal.item_name, pal.item_color" +
-                            "from locations loc join pallets pal on loc.pallet_id = pal.id" +
-                            "where loc.occupied = 1";
+            String select = "select loc.row, loc.x, loc.y, loc.pallet_id, pal.item_name, pal.item_color " +
+                            "from locations loc join pallets pal on loc.pallet_id = pal.id " +
+                            "where loc.occupied = 1 " +
+                            "and pal.item_name like '%" + SearchBox.Text + "%'";
 
             SqlDataAdapter SqlAdapter = new SqlDataAdapter(select, con);
             DataTable dt = new DataTable();
 
             SqlAdapter.Fill(dt);
+
+            GridViewItems.DataSource = dt;
+            GridViewItems.DataBind();
+
+            SearchBox.Text = "";
         }
     }
 }

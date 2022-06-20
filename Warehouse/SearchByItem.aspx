@@ -14,7 +14,7 @@
             <asp:Label ID="HeaderLabel" runat="server" Text="Search by Item"></asp:Label>
             <br />
             <asp:TextBox ID="SearchBox" runat="server"></asp:TextBox>
-            <asp:Button ID="SearchButton" runat="server" Text="Search" />
+            <asp:Button ID="SearchButton" runat="server" Text="Search" OnClick="SearchButton_Click" />
         </div>
 
         <asp:GridView ID="GridViewItems" runat="server"></asp:GridView>

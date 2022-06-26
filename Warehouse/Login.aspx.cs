@@ -27,5 +27,9 @@ namespace Warehouse {
             Response.Redirect("Home.aspx");
       
         }
+
+        protected void signup_Click(object sender, EventArgs e) {
+            Response.Redirect("Signup.aspx");
+        }
     }
 }

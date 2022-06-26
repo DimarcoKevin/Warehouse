@@ -58,13 +58,13 @@ namespace Warehouse {
         protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
-        /// login_button control.
+        /// submit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button login_button;
+        protected global::System.Web.UI.WebControls.Button submit;
 
         /// <summary>
         /// signup_hyperlink control.
@@ -74,6 +74,15 @@ namespace Warehouse {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HyperLink signup_hyperlink;
+
+        /// <summary>
+        /// signup control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button signup;
 
         /// <summary>
         /// login_message control.

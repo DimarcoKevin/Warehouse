@@ -42,5 +42,9 @@ namespace Warehouse {
                 Response.Redirect("Home.aspx");
             }
         }
+
+        protected void login_Click(object sender, EventArgs e) {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

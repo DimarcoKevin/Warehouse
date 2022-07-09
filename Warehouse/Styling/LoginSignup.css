@@ -127,3 +127,7 @@ h2 {
     #signup:active, #login:active{
         background-color: #06b;
     }
+
+#signup_message, #login_message {
+    color: red;
+}

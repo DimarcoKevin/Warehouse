@@ -110,7 +110,7 @@ h2 {
         background-color: #06b;
     }
 
-#signup {
+#signup, #login {
     background-color: #109b1c;
     border-radius: 12px;
     border: 0;
@@ -124,6 +124,6 @@ h2 {
     width: 100%;
 }
 
-    #signup:active {
+    #signup:active, #login:active{
         background-color: #06b;
     }

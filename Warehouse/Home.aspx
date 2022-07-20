@@ -25,8 +25,8 @@
                 6) Search for locations with 'XYZ' item 
 
                 ON-DECK:
-                2) validate user authentication as well as status - users.role
-                    - Need to add admin/superuser functionality         
+                2) Making an admin page with ability to make other users admins      
+                3) Making an admin page with ability to overview all orders
 
                 Linkable pages:
                 4) Receive a pallet of items (Inbound) (might not be needed)

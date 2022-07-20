@@ -6,7 +6,7 @@ using Warehouse.Variables;
 
 namespace Warehouse {
     public partial class CreateItem : System.Web.UI.Page {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
+        SqlConnection con = new SqlConnection(GlobalVariables.connectionString);
         public string user = GlobalVariables.user;
         protected void Page_Load(object sender, EventArgs e) {
             if (ColorDD.Items.Count == 0) {

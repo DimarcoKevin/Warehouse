@@ -13,7 +13,7 @@ namespace Warehouse {
         public string user = GlobalVariables.user;
         public string role;
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
+        SqlConnection con = new SqlConnection(GlobalVariables.connectionString);
 
         protected void Page_Load(object sender, EventArgs e) {
 

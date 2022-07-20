@@ -6,10 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Warehouse.Variables;
 
 namespace Warehouse {
     public partial class Items : System.Web.UI.Page {
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
+        SqlConnection con = new SqlConnection(GlobalVariables.connectionString);
         protected void Page_Load(object sender, EventArgs e) {
             
         }

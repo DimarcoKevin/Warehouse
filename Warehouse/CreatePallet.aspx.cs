@@ -13,7 +13,7 @@ using Warehouse.Variables;
 namespace Warehouse {
 public partial class CreatePallet : System.Web.UI.Page {
 
-        SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB; Initial Catalog=Warehouse; Integrated Security=true");
+        SqlConnection con = new SqlConnection(GlobalVariables.connectionString);
 
         protected void Page_Load(object sender, EventArgs e) {
             if (!Page.IsPostBack) {
